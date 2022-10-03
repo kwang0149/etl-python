@@ -2,6 +2,7 @@ import pandas as pd
 import os
 
 # delete files if exist
+
 if os.path.exists('pandas-ltmpt\\rankingxlsx.xlsx'):
     os.remove('pandas-ltmpt\\rankingxlsx.xlsx')
 
