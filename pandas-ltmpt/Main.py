@@ -3,8 +3,8 @@ import os
 
 # delete files if exist
 
-if os.path.exists('pandas-ltmpt\\rankingxlsx.xlsx'):
-    os.remove('pandas-ltmpt\\rankingxlsx.xlsx')
+if os.path.exists('pandas-ltmpt\\ranking-utbk.xlsx'):
+    os.remove('pandas-ltmpt\\ranking-utbk.xlsx')
 
 
 # extract file from url
@@ -22,9 +22,7 @@ def tidy(data):
         list_sekolah=x.split(' ')
         list_sekolah.pop(-1)
         dataset.at[i,'Sekolah']=' '.join(list_sekolah)
-
-    # parse datatype in column 'Kenaikan Nasional' to int
-    for i,row in data.iterrows():
+        # parse datatype in column 'Kenaikan Nasional' to int
         y=data.at[i,'Kenaikan Nasional']
         if isinstance(y,str) and y!='-':
             data.at[i,'Kenaikan Nasional']=int(y)
@@ -70,4 +68,4 @@ def load(path,city,province):
 dataset=extract('https://top-1000-sekolah.ltmpt.ac.id/site/index')
 # tidy up the data
 tidy(dataset)
-load('pandas-ltmpt\\rankingxlsx.xlsx','Kota Surabaya','Prov. Jawa Timur')
+load('pandas-ltmpt\\ranking-utbk.xlsx','Kota Surabaya','Prov. Jawa Timur')
